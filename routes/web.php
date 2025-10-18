@@ -31,6 +31,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/reload-captcha', function () {
+    return response()->json(['captcha' => captcha_src('flat')]);
+});
+
 //  Admin All Route
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');

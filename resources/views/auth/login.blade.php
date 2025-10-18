@@ -60,6 +60,19 @@
 
                             <div class="form-group mb-3 row">
                                 <div class="col-12">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="{{ captcha_src('flat') }}" alt="CAPTCHA" class="captcha-img">
+                                        <button type="button" class="btn btn-outline-secondary btn-refresh">⟳</button>
+                                    </div>
+                                    <input type="text" name="captcha" class="form-control mt-2" placeholder="Masukkan CAPTCHA">
+                                    @error('captcha')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3 row">
+                                <div class="col-12">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="form-label ms-1" for="customCheck1">Remember me</label>
@@ -104,7 +117,17 @@
     <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js') }}"></script>
 
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
-
+    <script>
+        $(document).on('click', '.btn-refresh', function () {
+            $.ajax({
+                type: 'GET',
+                url: '/reload-captcha',
+                success: function (data) {
+                    $('.captcha-img').attr('src', data.captcha);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

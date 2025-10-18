@@ -29,6 +29,15 @@ class LoginRequest extends FormRequest
         return [
             'username' => ['required', 'string'],
             'password' => ['required', 'string'],
+            'captcha'  => ['required', 'captcha'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'captcha.captcha' => 'Captcha yang anda masukkan salah, silakan coba kembali !!',
+            'captcha.required' => 'Captcha wajib diisi !!',
         ];
     }
 
