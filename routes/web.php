@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//  Admin All Route
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/admin/logout', 'destroy')->name('admin.logout');
+    
+});
+
