@@ -65,6 +65,12 @@
                                         Email</button>
                                 </div>
                             </div>
+                           <div class="col-sm-7 mt-3">
+                                <a href="{{ route('login') }}" class="text-muted">
+                                    <i class="mdi mdi-arrow-left"></i> Kembali ke Login
+                                </a>
+                            </div>
+
                         </form>
                     </div>
                 </div>
