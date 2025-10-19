@@ -1,7 +1,10 @@
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
-
+        @php
+            $id = Auth::user()->id;
+            $adminData = App\Models\User::find($id);
+        @endphp
         <!-- User details -->
         <div class="user-profile text-center mt-3">
             <div class="">

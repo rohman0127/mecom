@@ -273,6 +273,10 @@
                     <i class="ri-fullscreen-line"></i>
                 </button>
             </div>
+            @php
+                $id = Auth::user()->id;
+                $adminData = App\Models\User::find($id);
+            @endphp
 
             <div class="dropdown d-inline-block">
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
